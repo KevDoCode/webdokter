@@ -27,16 +27,20 @@ const Header = () => {
       .then((res) => {
         if (res.status == 401) {
           // setAuth(true);
-        }
-        res
-          .json()
-          .then((data) => {
-            console.log(data.data);
-            setData(data.data);
-          })
-          .catch((e) => {
-            console.log(e);
+          setData({
+            regist: { count: "0" },
+            user: { count: "0" },
           });
+        } else {
+          res
+            .json()
+            .then((data) => {
+              setData(data.data);
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }
       })
       .catch((e) => {
         console.log(e);

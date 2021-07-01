@@ -33,22 +33,19 @@ import {
   Col,
 } from "reactstrap";
 
-const Login = () => {
+const Login = (history) => {
   const checkLogin = async () => {
     let data = {
       username: user,
       password: pass,
     };
-    let response = await fetch(
-      "https://api-dokter.herokuapp.com/auth/admin/login",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).catch((e) => {
+    let response = await fetch("https://api-dokter.herokuapp.com/auth/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((e) => {
       setError(true);
     });
 
@@ -58,6 +55,7 @@ const Login = () => {
       localStorage.setItem("token", datas.token);
       localStorage.setItem("user", user);
       localStorage.setItem("pass", pass);
+      history.history.push("/admin/index");
     } else {
       setError(true);
     }
@@ -68,7 +66,7 @@ const Login = () => {
   return (
     <>
       <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
+        <Card className="bg-secondary shadow border-0 mb-3">
           <CardBody className="px-lg-5 py-lg-5">
             <h2 className="text-center py-2">Login</h2>
             <div className="text-center text-muted mb-4">
@@ -95,7 +93,7 @@ const Login = () => {
                 </InputGroup>
                 {error ? (
                   <small className="mt-4 ml-3 text-danger">
-                    Username salah
+                    Wrong Username
                   </small>
                 ) : (
                   <small></small>
@@ -121,7 +119,7 @@ const Login = () => {
                 </InputGroup>
                 {error ? (
                   <small className="mt-4 ml-3 text-danger">
-                    Password salah
+                    Wrong Password
                   </small>
                 ) : (
                   <small></small>
@@ -141,26 +139,6 @@ const Login = () => {
             </Form>
           </CardBody>
         </Card>
-        <Row className="mt-3">
-          <Col xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Forgot password?</small>
-            </a>
-          </Col>
-          <Col className="text-right" xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Create new account</small>
-            </a>
-          </Col>
-        </Row>
       </Col>
     </>
   );

@@ -22,7 +22,7 @@ import Patient from "views/Admin/Patient.js";
 import Appointment from "views/Admin/Appointment.js";
 import FormAppointment from "views/Admin/FormAppointment.js";
 import Register from "views/examples/Register.js";
-import Login from "views/examples/Login.js";
+import Login from "views/Admin/Login.js";
 import Tables from "views/Admin/Doctor.js";
 import Icons from "views/examples/Icons.js";
 import Doctor from "views/Admin/Doctor.js";
@@ -70,7 +70,7 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/login",
+    path: "/admin/login",
     name: "Registrant",
     icon: "ni ni-key-25 text-info",
     component: Login,

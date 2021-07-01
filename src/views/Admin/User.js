@@ -106,7 +106,7 @@ const User = () => {
   return (
     <>
       <Header />
-      {auth && <Redirect to="/auth/login" />}
+      {auth && <Redirect to="/auth/admin/login" />}
       {/* Page content */}
       <Container className="mt--7" fluid>
         {/*Modal*/}

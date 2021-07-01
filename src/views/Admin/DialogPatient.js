@@ -138,7 +138,7 @@ const DialogPatient = ({ modal, setModal, data = [], fetchdata }) => {
       isOpen={modal}
       toggle={() => setModal(false)}
     >
-      {auth && <Redirect to="/auth/login" />}
+      {auth && <Redirect to="/auth/admin/login" />}
       <div className="modal-header">
         <h5 className="modal-title" id="exampleModalLabel">
           Form Patient

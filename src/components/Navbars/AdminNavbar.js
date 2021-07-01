@@ -69,7 +69,7 @@ const AdminNavbar = (props) => {
                   onClick={(e) => {
                     e.preventDefault();
                     localStorage.clear();
-                    history.push("/auth/login");
+                    history.push("/auth/admin/login");
                   }}
                 >
                   <i className="ni ni-user-run" />

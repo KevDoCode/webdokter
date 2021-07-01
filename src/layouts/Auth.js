@@ -61,10 +61,9 @@ const Auth = (props) => {
   return (
     <>
       <div className="main-content" ref={mainContent}>
-        <AuthNavbar />
         <div className="header bg-gradient-info py-7 py-lg-8">
           <Container>
-            <div className="header-body text-center mb-7">
+            <div className="header-body text-center mb-5">
               <Row className="justify-content-center">
                 <Col lg="5" md="6">
                   <h1 className="text-white">Welcome!</h1>
@@ -97,12 +96,11 @@ const Auth = (props) => {
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="*" to="/auth/login" />
+              <Redirect from="*" to="/auth/admin/login" />
             </Switch>
           </Row>
         </Container>
       </div>
-      <AuthFooter />
     </>
   );
 };

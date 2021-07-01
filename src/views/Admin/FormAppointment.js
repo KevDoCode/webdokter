@@ -190,7 +190,7 @@ const Tables = (dataSelected = []) => {
   return (
     <>
       <Header />
-      {auth && <Redirect to="/auth/login" />}
+      {auth && <Redirect to="/auth/admin/login" />}
       {saved && <Redirect to="/admin/appoint" />}
       {/* Page content */}
       <Container className="mt--7" fluid>

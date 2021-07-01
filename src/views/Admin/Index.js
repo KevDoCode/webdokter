@@ -59,7 +59,8 @@ const Index = (props) => {
   }
 
   useEffect(() => {
-    fetchget("regis", (res) => {
+    fetchget("regis").then((res) => {
+      console.log(res.status);
       if (res.status == 401) {
         setAuth(true);
       } else {
@@ -79,7 +80,8 @@ const Index = (props) => {
     <>
       <Header />
       {/* Page content */}
-      {auth && <Redirect to="auth/login" />}
+
+      {auth && <Redirect to="/auth/admin/login" />}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <Col className="mb-5 mb-xl-0" xl="12">
