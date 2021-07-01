@@ -122,7 +122,7 @@ const Tables = () => {
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-                <h3 className="mb-3">Daftar Dokter</h3>
+                <h3 className="mb-3">List Doctor</h3>
                 <Form>
                   <FormGroup>
                     <InputGroup>
@@ -131,7 +131,7 @@ const Tables = () => {
                         onChange={(e) => {
                           setCari(e.target.value);
                         }}
-                        placeholder="Cari Dokter"
+                        placeholder="Search Doctor"
                         type="text"
                       />
                       <InputGroupAddon addonType="prepend">
@@ -147,7 +147,7 @@ const Tables = () => {
                         }}
                         className="ml-3"
                       >
-                        Tambah
+                        Add
                       </Button>
                     </InputGroup>
                   </FormGroup>

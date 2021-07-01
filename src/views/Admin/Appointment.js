@@ -142,7 +142,7 @@ const Tables = () => {
                           }}
                           className="ml-3"
                         >
-                          Tambah
+                          Add
                         </Button>
                       </Link>
                     </InputGroup>

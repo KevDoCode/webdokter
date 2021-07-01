@@ -147,7 +147,7 @@ const User = () => {
                         }}
                         className="ml-3"
                       >
-                        Tambah
+                        Add
                       </Button>
                     </InputGroup>
                   </FormGroup>
