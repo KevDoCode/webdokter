@@ -53,40 +53,78 @@ import {
 import { Redirect } from "react-router-dom";
 import Header from "components/Headers/UserHeader";
 import { fetchget } from "variables/Userdata";
+import { fetchput } from "variables/Userdata";
+import DialogConfirm from "views/examples/DialogConfirm";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [data, setData] = useState([]);
+  const [dataSelected, setDataSelected] = useState([]);
+  const [modalAction, setModalAction] = useState(false);
   const [cari, setCari] = useState("");
   const [auth, setAuth] = useState(false);
-  if (window.Chart) {
-    parseOptions(Chart, chartOptions());
-  }
 
+  const checkDate = (date) => {
+    var date1 = new Date();
+    var date2 = new Date(date);
+    if (date1.getTime() < date2.getTime()) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   useEffect(() => {
-    fetchget("regis").then((res) => {
-      console.log(res.status);
+    getData();
+  }, []);
+  const cancelData = () => {
+    let body = {
+      date_book: dataSelected.date_book.substring(0, 10),
+      date_regist: dataSelected.date_regist.substring(0, 10),
+      idappointments: dataSelected.idappointments,
+      time_book: dataSelected.time_book.substring(0, 5),
+      username: localStorage.getItem("user_user"),
+      flagstatus: 0,
+    };
+    fetchput("regis/" + dataSelected.id, body).then((res) => {
       if (res.status == 401) {
         setAuth(true);
-      } else {
-        res.json().then((e) => {
-          setData(e.data);
-          console.log(e.data);
-          console.log(data);
-        });
       }
+      res.json().then((e) => {
+        getData();
+      });
     });
-  }, []);
+  };
+
+  const getData = () => {
+    fetchget("regis/username/" + localStorage.getItem("user_user")).then(
+      (res) => {
+        console.log(res.status);
+        if (res.status == 401) {
+          setAuth(true);
+        } else {
+          res.json().then((e) => {
+            setData(e.data);
+            console.log(e.data);
+            console.log(data);
+          });
+        }
+      }
+    );
+  };
 
   return (
     <>
       <Header />
       {/* Page content */}
-
-      {auth && <Redirect to="/auth/admin/login" />}
+      <DialogConfirm
+        modal={modalAction}
+        setModal={setModalAction}
+        action={cancelData}
+      />
+      {auth && <Redirect to="/auth/user/login" />}
       <Container className="mt--7" fluid>
-        <Row className="mt-5">
+        <Row className="mt-2">
           <Col className="mb-5 mb-xl-0" xl="12">
             <Card className="shadow">
               <CardHeader className="border-0">
@@ -131,13 +169,38 @@ const Index = (props) => {
                         <td>{e.description}</td>
                         <td>{e.date_book.substring(0, 10)}</td>
                         <td>{e.time_book.substring(0, 5)}</td>
-                        {e.flagstatus == 1 && (
-                          <td className="text-center">
-                            <Button color="danger" outline size="xs">
-                              Cancel
-                            </Button>
-                          </td>
-                        )}
+                        {e.flagstatus == 1 &&
+                          checkDate(
+                            e.date_book.substring(0, 10) +
+                              " " +
+                              e.time_book.substring(0, 5)
+                          ) && (
+                            <td className="text-center">
+                              <Button
+                                color="danger"
+                                onClick={() => {
+                                  setDataSelected(e);
+                                  setModalAction(true);
+                                }}
+                                outline
+                                size="xs"
+                              >
+                                Cancel
+                              </Button>
+                            </td>
+                          )}
+                        {e.flagstatus == 1 &&
+                          !checkDate(
+                            e.date_book.substring(0, 10) +
+                              " " +
+                              e.time_book.substring(0, 5)
+                          ) && (
+                            <td className="text-center">
+                              <Button color="primary" size="xs">
+                                Skipped
+                              </Button>
+                            </td>
+                          )}
                         {e.flagstatus == 0 && (
                           <td className="text-center">
                             <Button color="danger" size="xs">

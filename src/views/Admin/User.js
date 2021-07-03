@@ -75,13 +75,9 @@ const User = () => {
             console.log(data.data);
             setData(data.data);
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   const deleteItem = () => {
@@ -95,13 +91,9 @@ const User = () => {
           .then((data) => {
             fetchData();
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
   return (
     <>
@@ -199,7 +191,6 @@ const User = () => {
                             <DropdownMenu className="dropdown-menu-arrow" right>
                               <DropdownItem
                                 onClick={() => {
-                                  console.log(e);
                                   setDataSelected(e);
                                   setModal(true);
                                 }}
@@ -208,7 +199,6 @@ const User = () => {
                               </DropdownItem>
                               <DropdownItem
                                 onClick={() => {
-                                  console.log(e);
                                   setDataSelected(e);
                                   setModalAction(true);
                                 }}

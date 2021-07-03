@@ -55,7 +55,7 @@ const UserNavbar = (props) => {
                   <span className="avatar avatar-sm rounded-circle"></span>
                   <Media className="ml-2 d-none d-lg-block">
                     <span className="mb-0 text-sm font-weight-bold">
-                      {localStorage.getItem("user")}
+                      {localStorage.getItem("user_name")}
                     </span>
                   </Media>
                 </Media>
@@ -68,7 +68,10 @@ const UserNavbar = (props) => {
                 <DropdownItem
                   onClick={(e) => {
                     e.preventDefault();
-                    localStorage.clear();
+                    localStorage.removeItem("tokenuser");
+                    localStorage.removeItem("user_user");
+                    localStorage.removeItem("pass_user");
+                    localStorage.removeItem("user_name");
                     history.push("/auth/user/login");
                   }}
                 >

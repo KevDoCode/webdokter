@@ -1,23 +1,5 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { useEffect, useState } from "react";
 
-// reactstrap components
 import {
   Badge,
   Card,
@@ -55,11 +37,10 @@ import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
 import Datetime from "react-datetime";
 import { Link } from "react-router-dom";
-const Tables = () => {
+const Appointment = () => {
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
-  const [modal, setModal] = useState(false);
   const [modalAction, setModalAction] = useState(false);
   const [auth, setAuth] = useState(false);
   useEffect((e) => {
@@ -78,13 +59,9 @@ const Tables = () => {
             console.log(data.data);
             setData(data.data);
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   const deleteItem = () => {
@@ -98,13 +75,9 @@ const Tables = () => {
           .then((data) => {
             fetchData();
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
   return (
     <>
@@ -170,7 +143,7 @@ const Tables = () => {
                         <td>
                           <h3 className="my-0">{e.description}</h3>
                           <p className="my-0">
-                            Dokter : <b>{e.doctor}</b>
+                            Doctor : <b>{e.doctor}</b>
                           </p>
                           <p className="my-0">
                             {e.starttime.substring(0, 5)} -{" "}
@@ -200,22 +173,15 @@ const Tables = () => {
                               </Link>
                               <DropdownItem
                                 onClick={() => {
-                                  console.log(e);
                                   setDataSelected(e);
                                   setModalAction(true);
                                 }}
                               >
                                 Delete
                               </DropdownItem>
-                              <DropdownItem
-                                onClick={() => {
-                                  console.log(e);
-                                  setDataSelected(e);
-                                  setModalAction(true);
-                                }}
-                              >
-                                Regisrant
-                              </DropdownItem>
+                              <Link to={"/admin/detail/" + e.id}>
+                                <DropdownItem>Regisrant</DropdownItem>
+                              </Link>
                             </DropdownMenu>
                           </UncontrolledDropdown>
                         </td>
@@ -250,4 +216,4 @@ const Tables = () => {
   );
 };
 
-export default Tables;
+export default Appointment;

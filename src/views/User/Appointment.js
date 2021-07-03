@@ -79,13 +79,9 @@ const Tables = () => {
             console.log(data.data);
             setData(data.data);
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   const deleteItem = () => {
@@ -99,18 +95,14 @@ const Tables = () => {
           .then((data) => {
             fetchData();
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
   return (
     <>
       <Header cari={cari} setCari={setCari} header="Appointment" />
-      {auth && <Redirect to="/auth/admin/login" />}
+      {auth && <Redirect to="/auth/user/login" />}
       {/* Page content */}
       <Container className="mt--7" fluid>
         {/* Table */}

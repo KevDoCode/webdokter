@@ -141,7 +141,10 @@ const Sidebar = (props) => {
               <DropdownItem
                 onClick={(e) => {
                   e.preventDefault();
-                  localStorage.clear();
+                  localStorage.removeItem("tokenuser");
+                  localStorage.removeItem("user_user");
+                  localStorage.removeItem("pass_user");
+                  localStorage.removeItem("user_name");
                   history.push("/auth/user/login");
                 }}
               >

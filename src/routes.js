@@ -23,6 +23,7 @@ import Patient from "views/Admin/Patient.js";
 import Appointment from "views/Admin/Appointment.js";
 import Appointment1 from "views/User/Appointment.js";
 import DetailAppointment from "views/User/DetailAppointments.js";
+import Detail from "views/Admin/Detail";
 import FormAppointment from "views/Admin/FormAppointment.js";
 import Register from "views/User/Register.js";
 import Login from "views/Admin/Login.js";
@@ -31,6 +32,13 @@ import Tables from "views/Admin/Doctor.js";
 import Icons from "views/examples/Icons.js";
 import Doctor from "views/Admin/Doctor.js";
 var routes = [
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: "ni ni-app text-success",
+    component: Dashboard,
+    layout: "/user",
+  },
   {
     path: "/index",
     name: "Dashboard",
@@ -41,14 +49,14 @@ var routes = [
   {
     path: "/doctor",
     name: "Doctor",
-    icon: "ni ni-planet text-blue",
+    icon: "ni ni-single-02 text-blue",
     component: Doctor,
     layout: "/admin",
   },
   {
     path: "/user",
     name: "User",
-    icon: "ni ni-pin-3 text-orange",
+    icon: "ni ni-single-02 text-orange",
     component: User,
     layout: "/admin",
   },
@@ -64,6 +72,13 @@ var routes = [
     name: "Appointment",
     icon: "ni ni-bullet-list-67 text-red",
     component: Appointment,
+    layout: "/admin",
+  },
+  {
+    path: "/detail/:id",
+    name: "Detail Appointment",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: Detail,
     layout: "/admin",
   },
   {
@@ -94,24 +109,18 @@ var routes = [
     component: Register,
     layout: "/auth",
   },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Dashboard,
-    layout: "/user",
-  },
+
   {
     path: "/profile",
     name: "Profile",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "ni ni-circle-08 text-primary",
     component: Profile,
     layout: "/user",
   },
   {
     path: "/appointment",
     name: "Appointment",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "ni ni-ambulance text-red",
     component: Appointment1,
     layout: "/user",
   },

@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // reactstrap components
 import {
@@ -35,6 +35,11 @@ import {
 
 import { Link } from "react-router-dom";
 const Login = (history) => {
+  useEffect(() => {
+    if (localStorage.getItem("tokenuser") != undefined) {
+      history.history.push("/user/dashboard");
+    }
+  }, []);
   const checkLogin = async () => {
     let data = {
       username: user,
@@ -51,13 +56,18 @@ const Login = (history) => {
     });
 
     if (response.status == 200) {
-      setError(false);
       let datas = await response.json();
-
-      localStorage.setItem("tokenuser", datas.token);
-      localStorage.setItem("user_user", user);
-      localStorage.setItem("pass_user", pass);
-      history.history.push("/user/dashboard");
+      console.log(datas);
+      if (datas.role == 2) {
+        localStorage.setItem("tokenuser", datas.token);
+        localStorage.setItem("user_user", user);
+        localStorage.setItem("pass_user", pass);
+        localStorage.setItem("user_name", datas.name);
+        history.history.push("/user/dashboard");
+        setError(false);
+      } else {
+        setError(true);
+      }
     } else {
       setError(true);
     }
@@ -83,8 +93,8 @@ const Login = (history) => {
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
-                    placeholder="Email"
-                    type="email"
+                    placeholder="Username"
+                    type="text"
                     onChange={(e) => {
                       setUser(e.target.value);
                       setError(false);

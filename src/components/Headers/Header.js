@@ -37,14 +37,10 @@ const Header = () => {
             .then((data) => {
               setData(data.data);
             })
-            .catch((e) => {
-              console.log(e);
-            });
+            .catch((e) => {});
         }
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   }, []);
   return (
     <>

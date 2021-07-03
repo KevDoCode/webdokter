@@ -36,7 +36,7 @@ import { fetchget } from "variables/Userdata";
 import { fetchput } from "variables/Userdata";
 import AfterModal from "components/modal/AfterModal";
 
-const Profile = () => {
+const Profile = (route) => {
   const [username, setUsername] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -52,6 +52,7 @@ const Profile = () => {
   const getData = async () => {
     let data = await fetchget("user/" + localStorage.getItem("user_user"));
     if (data.status == 401) {
+      route.history.push("/auth/user/login");
     } else {
       let response = await data.json();
       setUsername(response.data.username);
@@ -83,6 +84,7 @@ const Profile = () => {
         body
       );
       if (data.status == 401) {
+        route.history.push("/auth/user/login");
       } else {
         setstatus("success");
         setHeader("Success");
@@ -91,6 +93,7 @@ const Profile = () => {
         let res = await data.json();
         console.log(res);
         localStorage.setItem("user_user", username);
+        localStorage.setItem("user_name", firstname + " " + lastname);
       }
     }
   };

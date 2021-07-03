@@ -53,11 +53,16 @@ const Login = () => {
     });
 
     if (response.status == 200) {
-      setError(false);
       let datas = await response.json();
-      localStorage.setItem("token", datas.token);
-      localStorage.setItem("user", user);
-      localStorage.setItem("pass", pass);
+      if (datas.role == 1) {
+        localStorage.setItem("token", datas.token);
+        localStorage.setItem("name", datas.name);
+        localStorage.setItem("user", user);
+        localStorage.setItem("pass", pass);
+        setError(false);
+      } else {
+        setError(true);
+      }
     } else {
       setError(true);
     }

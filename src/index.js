@@ -29,10 +29,11 @@ import UserLayout from "layouts/User.js";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
+      <Route path="/user" render={(props) => <UserLayout {...props} />} />
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Route path="/user" render={(props) => <UserLayout {...props} />} />
-      <Redirect from="/" to="/admin/index" />
+
+      <Redirect from="/" to="/user/dashboard" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

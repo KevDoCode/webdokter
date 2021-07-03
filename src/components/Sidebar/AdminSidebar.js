@@ -72,7 +72,7 @@ const Sidebar = (props) => {
   // creates the links that appear in the left menu / Sidebar
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout == "/admin") {
+      if (prop.layout == "/admin" && prop.path != "/detail/:id") {
         return (
           <NavItem key={key}>
             <NavLink
@@ -141,7 +141,10 @@ const Sidebar = (props) => {
               <DropdownItem
                 onClick={(e) => {
                   e.preventDefault();
-                  localStorage.clear();
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("user");
+                  localStorage.removeItem("pass");
+                  localStorage.removeItem("name");
                   history.push("/auth/admin/login");
                 }}
               >

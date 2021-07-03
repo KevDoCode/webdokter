@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // reactstrap components
 import {
@@ -34,6 +34,11 @@ import {
 } from "reactstrap";
 
 const Register = (route) => {
+  useEffect(() => {
+    if (localStorage.getItem("tokenuser") != undefined) {
+      route.history.push("/user/dashboard");
+    }
+  }, []);
   const [username, setUsername] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -195,7 +200,7 @@ const Register = (route) => {
                     placeholder="Username"
                     value={username}
                     onChange={(e) => {
-                      setUsername(e.target.value);
+                      setUsername(e.target.value.split(" ").join(""));
                     }}
                     type="text"
                   />

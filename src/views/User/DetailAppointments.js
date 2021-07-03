@@ -107,7 +107,7 @@ const DetailAppointments = (route) => {
 
   const postData = () => {
     let body = {
-      username: "novandi",
+      username: localStorage.getItem("user_user"),
       idappointments: id,
       date_regist: getNow(),
       date_book: dateSelected,
@@ -121,7 +121,7 @@ const DetailAppointments = (route) => {
       } else {
         e.json().then((jsonData) => {
           if (e.status == 200) {
-            route.history.push("/admin/index");
+            route.history.push("/user/dashboard");
           } else {
             let errors = "Sorry, ";
             jsonData.error.map((e) => {
@@ -152,13 +152,9 @@ const DetailAppointments = (route) => {
               data.data.duration
             );
           })
-          .catch((e) => {
-            console.log(e);
-          });
+          .catch((e) => {});
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   const setTimeAppoint = (start_time, end_time, interval) => {
@@ -197,7 +193,7 @@ const DetailAppointments = (route) => {
   return (
     <>
       <Header data={data} />
-      {auth && <Redirect to="/auth/admin/login" />}
+      {auth && <Redirect to="/auth/user/login" />}
       {/* Page content */}
       <Container className="mt--7" fluid>
         {/* Table */}
