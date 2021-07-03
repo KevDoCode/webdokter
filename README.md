@@ -123,7 +123,7 @@ Digunakan untuk merubah profil dari pasien
 
 ## Buat Janji
 
-![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/buatjanji.png?raw=true)
+![](https://github.com/KevDoCode/webdokter/blob/888663dda12d71c644052ff1016ab9f635637f50/dokumentasi/user/buatjanji.png)
 
 Digunakan untuk memilih Janji
 
