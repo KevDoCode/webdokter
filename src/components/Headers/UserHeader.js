@@ -26,13 +26,7 @@ const UserHeader = () => {
       <div
         className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
         style={{
-          minHeight: "600px",
-          backgroundImage:
-            "url(" +
-            require("../../assets/img/theme/profile-cover.jpg").default +
-            ")",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
+          minHeight: "200px",
         }}
       >
         {/* Mask */}
@@ -46,13 +40,6 @@ const UserHeader = () => {
                 This is your profile page. You can see the progress you've made
                 with your work and manage your projects or assigned tasks
               </p>
-              <Button
-                color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                Edit profile
-              </Button>
             </Col>
           </Row>
         </Container>

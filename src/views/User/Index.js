@@ -36,6 +36,11 @@ import {
   Container,
   Row,
   Col,
+  FormGroup,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
 } from "reactstrap";
 
 // core components
@@ -46,13 +51,14 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import { Redirect } from "react-router-dom";
-import Header from "components/Headers/Header.js";
-import { fetchget } from "variables/Data";
+import Header from "components/Headers/UserHeader";
+import { fetchget } from "variables/Userdata";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [data, setData] = useState([]);
+  const [cari, setCari] = useState("");
   const [auth, setAuth] = useState(false);
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -86,37 +92,66 @@ const Index = (props) => {
               <CardHeader className="border-0">
                 <Row className="align-items-center">
                   <div className="col">
-                    <h3 className="mb-0">Page visits</h3>
-                  </div>
-                  <div className="col text-right">
-                    <Button
-                      color="primary"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      size="sm"
-                    >
-                      See all
-                    </Button>
+                    <h3 className="mb-3">Your Appointment</h3>
                   </div>
                 </Row>
+                <FormGroup>
+                  <InputGroup>
+                    <Input
+                      value={cari}
+                      onChange={(e) => {
+                        setCari(e.target.value);
+                      }}
+                      placeholder={"Search "}
+                      type="text"
+                    />
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-send" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                  </InputGroup>
+                </FormGroup>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
-                    <th scope="col">Patient Name</th>
+                    <th scope="col">Doctor Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((e) => {
                     return (
                       <tr>
-                        <td>{e.firstname + " " + e.lastname}</td>
+                        <td>{e.doctor}</td>
                         <td>{e.description}</td>
                         <td>{e.date_book.substring(0, 10)}</td>
                         <td>{e.time_book.substring(0, 5)}</td>
+                        {e.flagstatus == 1 && (
+                          <td className="text-center">
+                            <Button color="danger" outline size="xs">
+                              Cancel
+                            </Button>
+                          </td>
+                        )}
+                        {e.flagstatus == 0 && (
+                          <td className="text-center">
+                            <Button color="danger" size="xs">
+                              Canceled
+                            </Button>
+                          </td>
+                        )}
+                        {e.flagstatus == 2 && (
+                          <td className="text-center">
+                            <Button color="success" size="xs">
+                              Passed
+                            </Button>
+                          </td>
+                        )}
                       </tr>
                     );
                   })}

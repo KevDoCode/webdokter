@@ -33,7 +33,7 @@ import {
   Col,
 } from "reactstrap";
 
-const Register = () => {
+const Register = (route) => {
   const [username, setUsername] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -102,30 +102,31 @@ const Register = () => {
         },
       }
     );
-    let status = response.status
+    let status = response.status;
     let jsonData = await response.json();
-    if(status ==200){
-      localStorage.setItem("token", jsonData.token);
-      localStorage.setItem("user", username);
-      localStorage.setItem("pass", pass);
-    }else{
-      jsonData.error.map((e)=>{
-        if(e.field == "username"){
-          setUsernameError(e.message)
+    if (status == 200) {
+      localStorage.setItem("tokenuser", jsonData.token);
+      localStorage.setItem("user_user", username);
+      localStorage.setItem("pass_user", pass);
+      route.history.push("/user/dashboard");
+    } else {
+      jsonData.error.map((e) => {
+        if (e.field == "username") {
+          setUsernameError(e.message);
         }
-        if(e.field == "email"){
-          setEmailError(e.message)
+        if (e.field == "email") {
+          setEmailError(e.message);
         }
-        if(e.field == "firstName"){
-          setFirstError(e.message)
+        if (e.field == "firstName") {
+          setFirstError(e.message);
         }
-        if(e.field == "lastName"){
-          setLastError(e.message)
+        if (e.field == "lastName") {
+          setLastError(e.message);
         }
-        if(e.field == "password"){
-          setPassError(e.message)
+        if (e.field == "password") {
+          setPassError(e.message);
         }
-      })
+      });
     }
   };
 

@@ -16,13 +16,17 @@
 
 */
 import Index from "views/Admin/Index.js";
-import Profile from "views/examples/Profile.js";
+import Dashboard from "views/User/Index.js";
+import Profile from "views/User/Profile.js";
 import User from "views/Admin/User.js";
 import Patient from "views/Admin/Patient.js";
 import Appointment from "views/Admin/Appointment.js";
+import Appointment1 from "views/User/Appointment.js";
+import DetailAppointment from "views/User/DetailAppointments.js";
 import FormAppointment from "views/Admin/FormAppointment.js";
-import Register from "views/examples/Register.js";
+import Register from "views/User/Register.js";
 import Login from "views/Admin/Login.js";
+import Loginuser from "views/User/Login.js";
 import Tables from "views/Admin/Doctor.js";
 import Icons from "views/examples/Icons.js";
 import Doctor from "views/Admin/Doctor.js";
@@ -77,11 +81,46 @@ var routes = [
     layout: "/auth",
   },
   {
+    path: "/user/login",
+    name: "User Login",
+    icon: "ni ni-key-25 text-info",
+    component: Loginuser,
+    layout: "/auth",
+  },
+  {
     path: "/register",
     name: "Register",
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: Dashboard,
+    layout: "/user",
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: Profile,
+    layout: "/user",
+  },
+  {
+    path: "/appointment",
+    name: "Appointment",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: Appointment1,
+    layout: "/user",
+  },
+  {
+    path: "/detail/:id",
+    name: "Appointment",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: DetailAppointment,
+    layout: "/user",
   },
 ];
 export default routes;
