@@ -182,6 +182,7 @@ const DetailAppointments = (route) => {
                 <Form>
                   <small>Date Comes</small>
                   <Datetime
+                    input={false}
                     value={dateSelected}
                     onChange={(e) => setDateSelected(e.format("YYYY-MM-DD"))}
                     dateFormat="YYYY-MM-DD"

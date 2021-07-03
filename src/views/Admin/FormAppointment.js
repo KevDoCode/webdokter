@@ -226,6 +226,7 @@ const FormAppoint = (dataSelected = []) => {
                   <Col>
                     <small>Start Time</small>
                     <Datetime
+                      input={false}
                       dateFormat={false}
                       value={startTime}
                       onChange={(e) => {
@@ -237,6 +238,7 @@ const FormAppoint = (dataSelected = []) => {
                   <Col>
                     <small>End Time</small>
                     <Datetime
+                      input={false}
                       dateFormat={false}
                       value={endTime}
                       onChange={(e) => {
