@@ -97,7 +97,7 @@ Artinya pelanggan telah dating pada saat tanggal booking
 
 ## Dashboard
 
-![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/dashboard.png?raw=true) \
+![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png) 
 
 Untuk melihat jumlah pendaftar pada janji. Terdapat 4 status dalam table yaitu,
 
@@ -117,7 +117,7 @@ Artinya pelanggan tidak dating saat tanggal booking atau admin tidak menekan wil
 
 Artinya pelanggan telah dating pada saat tanggal booking
 
-## Profil ![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/profil.png?raw=true)
+## Profil ![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/profil.png)
 
 Digunakan untuk merubah profil dari pasien
 
@@ -129,6 +129,6 @@ Digunakan untuk memilih Janji
 
 ## Detail Buat Janji
 
-![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/detailbuatjanji.png?raw=true)
+![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/detailbuatjanji.png)
 
 Digunakan untuk menentukan tanggal dan waktu booking. Waktu booking telah dibuat oleh system berdasarkan jam kerja dokter dan durasi janji. Pasien tidak bisa membuat janji yang sama dengan pasien lain
