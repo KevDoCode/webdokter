@@ -256,7 +256,7 @@ const Tables = (dataSelected = []) => {
                 {times.length > 0 && <h4>List Schedule</h4>}
                 <Row>
                   {times.map((e) => (
-                    <Col md="3" sm="6">
+                    <Col xl="3" md="6" xs="6">
                       <Card className="mt-1 " color="secondary">
                         <h4 color="white" className="text-center  mt-1">
                           {e}

@@ -89,7 +89,7 @@ const Tables = () => {
                   );
                 })
                 .map((e) => (
-                  <Col lg="4" xs="6">
+                  <Col lg="4" xs="12">
                     <Card className="card-lift--hover shadow border-0 mt-2">
                       <CardBody className="py-5">
                         <div className="icon icon-shape icon-shape-success rounded-circle mb-2">
@@ -116,8 +116,8 @@ const Tables = () => {
                             pathname: "/user/detail/" + e.id,
                           }}
                         >
-                          <Button className="mt-3" color="success">
-                            Learn more
+                          <Button className="mt-3" outline color="success">
+                            Register
                           </Button>
                         </Link>
                       </CardBody>
