@@ -65,7 +65,7 @@ const FormAppoint = (dataSelected = []) => {
 
     if (start.getTime() > end.getTime()) {
       valid = false;
-      setErrorTime("Start Mush be More than End Time");
+      setErrorTime("Start Must be More than End Time");
     } else {
       setErrorTime("");
     }
@@ -101,7 +101,7 @@ const FormAppoint = (dataSelected = []) => {
       }
       setAuth(true);
     } else {
-      setErrorTime("Start Mush be More than End Time");
+      setErrorTime("Start Must be More than End Time");
     }
   };
   useEffect((e) => {
@@ -237,6 +237,7 @@ const FormAppoint = (dataSelected = []) => {
                 <Row>
                   <Col>
                     <small>Start Time</small>
+                    <br />
                     <small className="text-danger">{errorTime}</small>
                     <Datetime
                       input={false}
