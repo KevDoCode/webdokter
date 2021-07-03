@@ -25,8 +25,9 @@ const Header = () => {
   useEffect((e) => {
     fetchget("regis/dashboard")
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           // setAuth(true);
+
           setData({
             regist: { count: "0" },
             user: { count: "0" },

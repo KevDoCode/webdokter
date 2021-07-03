@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 import {
-  Badge,
   Card,
-  Col,
   CardHeader,
   CardFooter,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
   Table,
   Container,
   Row,
-  UncontrolledTooltip,
   Form,
   FormGroup,
   InputGroup,
@@ -26,7 +18,6 @@ import {
   InputGroupText,
   Input,
   Button,
-  Modal,
 } from "reactstrap";
 
 import DialogConfirm from "views/examples/DialogConfirm.js";
@@ -35,7 +26,6 @@ import { Redirect } from "react-router-dom";
 import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
-import Datetime from "react-datetime";
 import { Link } from "react-router-dom";
 const Appointment = () => {
   const [cari, setCari] = useState("");
@@ -50,7 +40,7 @@ const Appointment = () => {
   const fetchData = () => {
     fetchget("appointment")
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res
@@ -67,8 +57,8 @@ const Appointment = () => {
   const deleteItem = () => {
     fetchdelete("appointment/" + dataSelected.id)
       .then((res) => {
-        if (res.status == 401) {
-          setAuth(true);
+        if (localStorage.getItem("token") !== undefined) {
+          localStorage.setItem("expired", "token expired");
         }
         res
           .json()

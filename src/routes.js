@@ -28,8 +28,6 @@ import FormAppointment from "views/Admin/FormAppointment.js";
 import Register from "views/User/Register.js";
 import Login from "views/Admin/Login.js";
 import Loginuser from "views/User/Login.js";
-import Tables from "views/Admin/Doctor.js";
-import Icons from "views/examples/Icons.js";
 import Doctor from "views/Admin/Doctor.js";
 var routes = [
   {

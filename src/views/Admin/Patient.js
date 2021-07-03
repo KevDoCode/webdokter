@@ -19,7 +19,6 @@ import React, { useEffect, useState } from "react";
 
 // reactstrap components
 import {
-  Badge,
   Card,
   CardHeader,
   CardFooter,
@@ -27,15 +26,9 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
   Table,
   Container,
   Row,
-  UncontrolledTooltip,
   Form,
   FormGroup,
   InputGroup,
@@ -43,7 +36,6 @@ import {
   InputGroupText,
   Input,
   Button,
-  Modal,
 } from "reactstrap";
 import DialogUser from "views/Admin/DialogPatient.js";
 import DialogConfirm from "views/examples/DialogConfirm.js";
@@ -66,7 +58,7 @@ const Patient = () => {
   const fetchData = () => {
     fetchget("user")
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res
@@ -83,7 +75,7 @@ const Patient = () => {
   const deleteItem = () => {
     fetchdelete("user/" + dataSelected.username)
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res

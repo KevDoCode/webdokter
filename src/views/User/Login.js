@@ -21,7 +21,6 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -55,7 +54,7 @@ const Login = (history) => {
       setError(true);
     });
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       let datas = await response.json();
       console.log(datas);
       if (datas.role == 2) {

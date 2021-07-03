@@ -1,39 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  Badge,
-  Card,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
-  Form,
-  FormGroup,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  Button,
-  Modal,
-} from "reactstrap";
+import { Form, FormGroup, Input, Button, Modal } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { fetchput } from "variables/Data";
 import { fetchpost } from "variables/Data";
 const DialogDoctor = ({ modal, setModal, data = [], fetchdata }) => {
   useEffect(() => {
-    setDoctor(data.doctor != undefined ? data.doctor : "");
-    setPhone(data.phonenumber != undefined ? data.phonenumber : "");
-    setAddress(data.address != undefined ? data.address : "");
+    setDoctor(data.doctor !== undefined ? data.doctor : "");
+    setPhone(data.phonenumber !== undefined ? data.phonenumber : "");
+    setAddress(data.address !== undefined ? data.address : "");
   }, [data]);
   const [doctor, setDoctor] = useState("");
   const [address, setAddress] = useState("");
@@ -83,19 +57,22 @@ const DialogDoctor = ({ modal, setModal, data = [], fetchdata }) => {
       response = await fetchput("dokter/" + data.id, body);
     }
     let jsonData = await response.json();
-    if (response.status == 200) {
+    if (response.status === 200) {
       fetchdata();
       setModal(false);
     } else if (response.status == 401) {
+      if (localStorage.getItem("token") !== undefined) {
+        localStorage.setItem("expired", "token expired");
+      }
       setAuth(true);
     } else {
       console.log(response.status);
       jsonData.error.map((e) => {
-        if (e.field == "doctor") {
+        if (e.field === "doctor") {
           setDoctorError(e.message);
-        } else if (e.field == "phonenumber") {
+        } else if (e.field === "phonenumber") {
           setPhoneError(e.message);
-        } else if (e.field == "address") {
+        } else if (e.field === "address") {
           setAddressError(e.message);
         }
       });

@@ -18,45 +18,15 @@
 import React, { useEffect, useState } from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Card,
-  Col,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
-  Form,
-  FormGroup,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  Button,
-  Modal,
-  CardBody,
-} from "reactstrap";
+import { Card, Col, Container, Row, Form, FormGroup, Button } from "reactstrap";
 
-import DialogConfirm from "views/examples/DialogConfirm.js";
 import { Redirect } from "react-router-dom";
 // core components
 import Header from "components/Headers/CommonHeader";
 import { fetchget } from "variables/Userdata.js";
 import { fetchpost } from "variables/Userdata";
 import Datetime from "react-datetime";
-import { Link, useParams } from "react-router-dom";
-import { validateLocaleAndSetLanguage } from "typescript";
+import { useParams } from "react-router-dom";
 import AfterModal from "components/modal/AfterModal";
 const DetailAppointments = (route) => {
   const getNow = () => {
@@ -117,6 +87,9 @@ const DetailAppointments = (route) => {
     console.log(body);
     fetchpost("regis", body).then((e) => {
       if (e.status == 401) {
+        if (localStorage.getItem("tokenuser") !== undefined) {
+          localStorage.setItem("expired", "token expired");
+        }
         setAuth(true);
       } else {
         e.json().then((jsonData) => {
@@ -138,7 +111,7 @@ const DetailAppointments = (route) => {
   const fetchData = () => {
     fetchget("appointment/" + id)
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res

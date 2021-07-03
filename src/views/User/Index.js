@@ -17,21 +17,13 @@
 */
 import React, { useEffect, useState } from "react";
 // node.js library that concatenates classes (strings)
-import classnames from "classnames";
 // javascipt plugin for creating charts
-import Chart from "chart.js";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
 // reactstrap components
 import {
   Button,
   Card,
   CardHeader,
-  CardBody,
-  NavItem,
-  NavLink,
-  Nav,
-  Progress,
   Table,
   Container,
   Row,
@@ -44,12 +36,6 @@ import {
 } from "reactstrap";
 
 // core components
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2,
-} from "variables/charts.js";
 import { Redirect } from "react-router-dom";
 import Header from "components/Headers/UserHeader";
 import { fetchget } from "variables/Userdata";
@@ -87,7 +73,10 @@ const Index = (props) => {
       flagstatus: 0,
     };
     fetchput("regis/" + dataSelected.id, body).then((res) => {
-      if (res.status == 401) {
+      if (res.status === 401) {
+        if (localStorage.getItem("tokenuser") !== undefined) {
+          localStorage.setItem("expired", "token expired");
+        }
         setAuth(true);
       }
       res.json().then((e) => {
@@ -100,7 +89,7 @@ const Index = (props) => {
     fetchget("regis/username/" + localStorage.getItem("user_user")).then(
       (res) => {
         console.log(res.status);
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         } else {
           res.json().then((e) => {

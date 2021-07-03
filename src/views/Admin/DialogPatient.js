@@ -1,31 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Badge,
-  Card,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
-  Form,
-  FormGroup,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  Button,
-  Modal,
-} from "reactstrap";
+import { Form, FormGroup, Input, Button, Modal } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { fetchput } from "variables/Data";
 import { fetchpost } from "variables/Data";
@@ -105,10 +79,13 @@ const DialogPatient = ({ modal, setModal, data = [], fetchdata }) => {
       response = await fetchput("user/" + data.username, body);
     }
     let jsonData = await response.json();
-    if (response.status == 200) {
+    if (response.status === 200) {
       fetchdata();
       setModal(false);
     } else if (response.status == 401) {
+      if (localStorage.getItem("token") !== undefined) {
+        localStorage.setItem("expired", "token expired");
+      }
       setAuth(true);
     } else {
       console.log(response.status);

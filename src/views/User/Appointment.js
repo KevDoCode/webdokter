@@ -18,35 +18,7 @@
 import React, { useEffect, useState } from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Card,
-  Col,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
-  Form,
-  FormGroup,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  Button,
-  Modal,
-  CardBody,
-} from "reactstrap";
+import { Badge, Card, Col, Container, Row, Button, CardBody } from "reactstrap";
 
 import DialogConfirm from "views/examples/DialogConfirm.js";
 import { Redirect } from "react-router-dom";
@@ -54,7 +26,6 @@ import { Redirect } from "react-router-dom";
 import Header from "components/Headers/SearchHeader";
 import { fetchget } from "variables/Userdata.js";
 import { fetchdelete } from "variables/Userdata";
-import Datetime from "react-datetime";
 import { Link } from "react-router-dom";
 const Tables = () => {
   const [cari, setCari] = useState("");
@@ -70,7 +41,7 @@ const Tables = () => {
   const fetchData = () => {
     fetchget("appointment")
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res
@@ -87,7 +58,7 @@ const Tables = () => {
   const deleteItem = () => {
     fetchdelete("appointment/" + dataSelected.id)
       .then((res) => {
-        if (res.status == 401) {
+        if (res.status === 401) {
           setAuth(true);
         }
         res

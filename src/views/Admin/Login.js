@@ -21,7 +21,6 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   FormGroup,
   Form,
@@ -29,7 +28,6 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Row,
   Col,
 } from "reactstrap";
 
@@ -54,7 +52,7 @@ const Login = (history) => {
       setError(true);
     });
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       let datas = await response.json();
       if (datas.role == 1) {
         localStorage.setItem("token", datas.token);

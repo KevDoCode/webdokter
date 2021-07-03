@@ -52,6 +52,9 @@ const Profile = (route) => {
   const getData = async () => {
     let data = await fetchget("user/" + localStorage.getItem("user_user"));
     if (data.status == 401) {
+      if (localStorage.getItem("tokenuser") !== undefined) {
+        localStorage.setItem("expired", "token expired");
+      }
       route.history.push("/auth/user/login");
     } else {
       let response = await data.json();
@@ -84,6 +87,9 @@ const Profile = (route) => {
         body
       );
       if (data.status == 401) {
+        if (localStorage.getItem("tokenuser") !== undefined) {
+          localStorage.setItem("expired", "token expired");
+        }
         route.history.push("/auth/user/login");
       } else {
         setstatus("success");
