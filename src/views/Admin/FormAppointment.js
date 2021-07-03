@@ -228,7 +228,6 @@ const FormAppoint = (dataSelected = []) => {
                         setDuration(
                           parseInt(e.target.value) ? e.target.value : "1"
                         );
-                        setErrorTime("");
                       }}
                     />
                     <InputGroupAddon color="primary">menit</InputGroupAddon>
@@ -245,6 +244,7 @@ const FormAppoint = (dataSelected = []) => {
                       value={startTime}
                       onChange={(e) => {
                         setStartTime(e.format("HH:mm"));
+                        setErrorTime("");
                       }}
                       timeFormat="HH:mm"
                     />
