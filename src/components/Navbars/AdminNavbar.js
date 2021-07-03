@@ -47,7 +47,6 @@ const AdminNavbar = (props) => {
           >
             {props.brandText}
           </Link>
-
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>
               <DropdownToggle className="pr-0" nav>
