@@ -111,22 +111,23 @@ const Register = (route) => {
       localStorage.setItem("tokenuser", jsonData.token);
       localStorage.setItem("user_user", username);
       localStorage.setItem("pass_user", pass);
+      localStorage.setItem("user_name", first + " " + last);
       route.history.push("/user/dashboard");
     } else {
       jsonData.error.map((e) => {
-        if (e.field == "username") {
+        if (e.field === "username") {
           setUsernameError(e.message);
         }
-        if (e.field == "email") {
+        if (e.field === "email") {
           setEmailError(e.message);
         }
-        if (e.field == "firstName") {
+        if (e.field === "firstName") {
           setFirstError(e.message);
         }
-        if (e.field == "lastName") {
+        if (e.field === "lastName") {
           setLastError(e.message);
         }
-        if (e.field == "password") {
+        if (e.field === "password") {
           setPassError(e.message);
         }
       });
