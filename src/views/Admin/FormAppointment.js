@@ -59,6 +59,16 @@ const FormAppoint = (dataSelected = []) => {
     } else {
       setDescError("");
     }
+
+    let start = new Date("2021-04-04 " + startTime);
+    let end = new Date("2021-04-04 " + endTime);
+
+    if (start.getTime() > end.getTime()) {
+      valid = false;
+      setErrorTime("Start Mush be More than End Time");
+    } else {
+      setErrorTime("");
+    }
     if (valid) {
       saveData();
     }
