@@ -7,13 +7,13 @@ API
 
 URL : [https://api-dokter.herokuapp.com/](https://api-dokter.herokuapp.com/)
 
-Dokumentasi :[https://github.com/KevDoCode/api-dokter](https://github.com/KevDoCode/api-dokter)
+Dokumentasi : [https://github.com/KevDoCode/api-dokter](https://github.com/KevDoCode/api-dokter)
 
 Bagian Admin
 
 Url : [https://webdokter.herokuapp.com/admin/index](https://webdokter.herokuapp.com/admin/index)
 
-Dokumentasi :[https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/Admin.md](https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/Admin.md)
+Dokumentasi : [https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/Admin.md](https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/Admin.md)
 
 Bagian Pasien
 
