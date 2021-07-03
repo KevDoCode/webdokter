@@ -21,7 +21,7 @@ Url : [https://webdokter.herokuapp.com/user/dashboard](https://webdokter.herokua
 
 ## Dashboard
 
-![](RackMultipart20210703-4-gw51od_html_f75fb9607815fac2.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/dashboard.png?raw=true)
 
 Untuk melihat jumlah pendaftar pada janji. Terdapat 4 status dalam table yaitu,
 
@@ -43,37 +43,37 @@ Artinya pelanggan telah dating pada saat tanggal booking
 
 ## Dokter
 
-![](RackMultipart20210703-4-gw51od_html_1b1b30d0b2c27efe.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/dokter.png?raw=true)
 
 Digunakan untuk menampilkan, menambah, mengedit, dan menghapus dokter
 
 ## Pengguna / Admin
 
-![](RackMultipart20210703-4-gw51od_html_794eebd7b1cb6138.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/pengguna.png?raw=true)
 
 Digunakan untuk menampilkan, menambah, mengedit, dan menghapus pengguna/admin
 
 ## Pasien
 
-![](RackMultipart20210703-4-gw51od_html_b6e5dfe74197386.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/pasien.png?raw=true)
 
 Digunakan untuk menampilkan, menambah, mengedit, dan menghapus pasien
 
 ## Janji
 
-![](RackMultipart20210703-4-gw51od_html_53c0f9376d5e63df.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/janji.png?raw=true)
 
 Digunakan untuk menampilkan, menambah, mengedit, dan menghapus janji. Dan pilihan registrant untuk melihat pendaftar di setiap janji.
 
 ## Pembuatan Janji
 
-![](RackMultipart20210703-4-gw51od_html_cb177d7ce221a8c5.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/buatjanji.png?raw=true)
 
 Dalam membuat janji admin akan memasukan deskripsi, dokter, jam kerja dokter awal sampai akhir, serta perkiraan estimasi waktu yang digunakan dokter untuk janjinya. Ketika tombol run simulation ditekan maka jam yang dapat dipilih user dapat dilihat sesuai jam kerja dan durasi.
 
 ## Pendaftar setiap janji
 
-![](RackMultipart20210703-4-gw51od_html_7362353459104dba.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/admin/pendaftar.png?raw=true)
 
 Untuk melihat jumlah pendaftar pada janji yang terpilih. Terdapat 4 status dalam table yaitu,
 
@@ -97,7 +97,7 @@ Artinya pelanggan telah dating pada saat tanggal booking
 
 ## Dashboard
 
-![](RackMultipart20210703-4-gw51od_html_6a5f4687e96df548.png) \
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/dashboard.png?raw=true) \
 
 Untuk melihat jumlah pendaftar pada janji. Terdapat 4 status dalam table yaitu,
 
@@ -117,18 +117,18 @@ Artinya pelanggan tidak dating saat tanggal booking atau admin tidak menekan wil
 
 Artinya pelanggan telah dating pada saat tanggal booking
 
-## Profil ![](RackMultipart20210703-4-gw51od_html_112bd2209bc95d63.png)
+## Profil ![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/profil.png?raw=true)
 
 Digunakan untuk merubah profil dari pasien
 
 ## Buat Janji
 
-![](RackMultipart20210703-4-gw51od_html_266161959deab6a6.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/buatjanji.png?raw=true)
 
 Digunakan untuk memilih Janji
 
 ## Detail Buat Janji
 
-![](RackMultipart20210703-4-gw51od_html_1b46c15e017886f1.png)
+![](https://github.com/KevDoCode/webdokter/tree/master/dokumentasi/user/detailbuatjanji.png?raw=true)
 
 Digunakan untuk menentukan tanggal dan waktu booking. Waktu booking telah dibuat oleh system berdasarkan jam kerja dokter dan durasi janji. Pasien tidak bisa membuat janji yang sama dengan pasien lain
