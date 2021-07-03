@@ -48,7 +48,7 @@ const FormAppoint = (dataSelected = []) => {
 
   const [desc, setDesc] = useState("");
   const [descError, setDescError] = useState("");
-  const [modalAction, setModalAction] = useState(false);
+  const [errorTime, setErrorTime] = useState("");
   const [auth, setAuth] = useState(false);
   const [saved, setSaved] = useState(false);
   const checkForm = () => {
@@ -82,15 +82,16 @@ const FormAppoint = (dataSelected = []) => {
         body
       );
     }
-    let jsonData = await response.json();
+
     if (response.status === 200) {
       setSaved(true);
-    } else if (response.status == 401) {
+    } else if (response.status === 401) {
       if (localStorage.getItem("token") !== undefined) {
         localStorage.setItem("expired", "token expired");
       }
       setAuth(true);
     } else {
+      setErrorTime("Start Mush be More than End Time");
     }
   };
   useEffect((e) => {
@@ -217,6 +218,7 @@ const FormAppoint = (dataSelected = []) => {
                         setDuration(
                           parseInt(e.target.value) ? e.target.value : "1"
                         );
+                        setErrorTime("");
                       }}
                     />
                     <InputGroupAddon color="primary">menit</InputGroupAddon>
@@ -225,6 +227,7 @@ const FormAppoint = (dataSelected = []) => {
                 <Row>
                   <Col>
                     <small>Start Time</small>
+                    <small className="text-danger">{errorTime}</small>
                     <Datetime
                       input={false}
                       dateFormat={false}
