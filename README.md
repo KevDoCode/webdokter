@@ -97,7 +97,11 @@ Artinya pelanggan telah dating pada saat tanggal booking
 
 ## Dashboard
 
+<<<<<<< HEAD
 ![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png)
+=======
+![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png) 
+>>>>>>> cc6ea3f3ad4202d45fad0a1a8f2fe8a8c49d963d
 
 Untuk melihat jumlah pendaftar pada janji. Terdapat 4 status dalam table yaitu,
 
