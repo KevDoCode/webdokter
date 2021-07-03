@@ -66,7 +66,6 @@ const DialogDoctor = ({ modal, setModal, data = [], fetchdata }) => {
       }
       setAuth(true);
     } else {
-      console.log(response.status);
       jsonData.error.map((e) => {
         if (e.field === "doctor") {
           setDoctorError(e.message);

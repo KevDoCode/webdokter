@@ -44,6 +44,4 @@ app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(port, (e) => {
-  console.log(port);
-});
+app.listen(port, (e) => {});

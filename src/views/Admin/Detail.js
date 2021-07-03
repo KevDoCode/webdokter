@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // node.js library that concatenates classes (strings)
 // javascipt plugin for creating charts
 // react plugin used to create charts
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -45,7 +45,6 @@ const Index = (props) => {
       }
 
       res.json().then((e) => {
-        console.log(e);
         getData();
       });
     });
@@ -63,7 +62,6 @@ const Index = (props) => {
 
   const getData = () => {
     fetchget("appointment/" + id).then((res) => {
-      console.log(res.status);
       if (res.status === 401) {
         if (localStorage.getItem("token") !== undefined) {
           localStorage.setItem("expired", "token expired");
@@ -79,7 +77,6 @@ const Index = (props) => {
       }
     });
     fetchget("regis/appointment/" + id).then((res) => {
-      console.log(res.status);
       if (res.status === 401) {
         if (localStorage.getItem("token") !== undefined) {
           localStorage.setItem("expired", "token expired");
@@ -88,8 +85,6 @@ const Index = (props) => {
       } else {
         res.json().then((e) => {
           setDetail(e.data);
-          console.log(e.data);
-          console.log(data);
         });
       }
     });
@@ -108,6 +103,7 @@ const Index = (props) => {
         setModal={setModalAction}
         action={cancelData}
       />
+      {auth && <Link to="/auth/admin" />}
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <Col className="mb-5 mb-xl-0" xl="12">

@@ -45,7 +45,7 @@ import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
 import AfterModal from "components/modal/AfterModal";
-const Tables = () => {
+const Doctor = () => {
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
@@ -66,7 +66,6 @@ const Tables = () => {
         res
           .json()
           .then((data) => {
-            console.log(data.data);
             setData(data.data);
           })
           .catch((e) => {});
@@ -237,4 +236,4 @@ const Tables = () => {
   );
 };
 
-export default Tables;
+export default Doctor;

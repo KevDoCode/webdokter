@@ -38,7 +38,7 @@ import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchpost, fetchput } from "variables/Data";
 import Datetime from "react-datetime";
-const Tables = (dataSelected = []) => {
+const FormAppoint = (dataSelected = []) => {
   const [data, setData] = useState([]);
   const [startTime, setStartTime] = useState("07:00");
   const [endTime, setEndTime] = useState("12:00");
@@ -283,4 +283,4 @@ const Tables = (dataSelected = []) => {
   );
 };
 
-export default Tables;
+export default FormAppoint;

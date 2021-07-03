@@ -88,7 +88,6 @@ const DialogPatient = ({ modal, setModal, data = [], fetchdata }) => {
       }
       setAuth(true);
     } else {
-      console.log(response.status);
       jsonData.error.map((e) => {
         if (e.field == "email") {
           setEmailError(e.message);

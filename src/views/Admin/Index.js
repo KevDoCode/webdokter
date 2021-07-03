@@ -46,7 +46,6 @@ const Index = (props) => {
 
   const getData = () => {
     fetchget("regis").then((res) => {
-      console.log(res.status);
       if (res.status === 401) {
         if (localStorage.getItem("token") !== undefined) {
           localStorage.setItem("expired", "token expired");
@@ -55,8 +54,6 @@ const Index = (props) => {
       } else {
         res.json().then((e) => {
           setData(e.data);
-          console.log(e.data);
-          console.log(data);
         });
       }
     });
@@ -80,7 +77,6 @@ const Index = (props) => {
       }
 
       res.json().then((e) => {
-        console.log(e);
         getData();
       });
     });

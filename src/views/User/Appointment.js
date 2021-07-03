@@ -27,7 +27,7 @@ import Header from "components/Headers/SearchHeader";
 import { fetchget } from "variables/Userdata.js";
 import { fetchdelete } from "variables/Userdata";
 import { Link } from "react-router-dom";
-const Tables = () => {
+const Appoint = () => {
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
@@ -47,7 +47,6 @@ const Tables = () => {
         res
           .json()
           .then((data) => {
-            console.log(data.data);
             setData(data.data);
           })
           .catch((e) => {});
@@ -138,4 +137,4 @@ const Tables = () => {
   );
 };
 
-export default Tables;
+export default Appoint;

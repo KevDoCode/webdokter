@@ -56,7 +56,7 @@ const Login = (history) => {
 
     if (response.status === 200) {
       let datas = await response.json();
-      console.log(datas);
+
       if (datas.role == 2) {
         localStorage.setItem("tokenuser", datas.token);
         localStorage.setItem("user_user", user);

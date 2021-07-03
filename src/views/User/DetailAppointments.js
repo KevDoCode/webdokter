@@ -32,17 +32,17 @@ const DetailAppointments = (route) => {
   const getNow = () => {
     let date = new Date();
     let day =
-      date.getDate().toString().length == 1
+      date.getDate().toString().length === 1
         ? "0" + date.getDate()
         : date.getDate();
     let month =
-      (date.getMonth() + 1).toString().length == 1
+      (date.getMonth() + 1).toString().length === 1
         ? "0" + (date.getMonth() + 1)
         : date.getMonth() + 1;
     let now = date.getFullYear() + "-" + month + "-" + day;
     return now;
   };
-  const [cari, setCari] = useState("");
+
   const [data, setData] = useState([]);
   const [time, setTime] = useState([]);
   const [timeSelected, setTimeSelected] = useState("");
@@ -53,18 +53,17 @@ const DetailAppointments = (route) => {
   const [auth, setAuth] = useState(false);
   let { id } = useParams();
   useEffect((e) => {
-    if (id == undefined) {
+    if (id === undefined) {
       route.history.goBack();
     }
     fetchData();
   }, []);
 
   const checkForm = () => {
-    console.log(agree);
-    if (timeSelected == "") {
+    if (timeSelected === "") {
       setMsgError("Please Select Time Comes");
       setModal(true);
-    } else if (dateSelected == "") {
+    } else if (dateSelected === "") {
       setMsgError("Please Select Time Comes");
       setModal(true);
     } else if (!agree) {
@@ -84,16 +83,16 @@ const DetailAppointments = (route) => {
       time_book: timeSelected,
       flagstatus: 1,
     };
-    console.log(body);
+
     fetchpost("regis", body).then((e) => {
-      if (e.status == 401) {
+      if (e.status === 401) {
         if (localStorage.getItem("tokenuser") !== undefined) {
           localStorage.setItem("expired", "token expired");
         }
         setAuth(true);
       } else {
         e.json().then((jsonData) => {
-          if (e.status == 200) {
+          if (e.status === 200) {
             route.history.push("/user/dashboard");
           } else {
             let errors = "Sorry, ";
@@ -117,7 +116,6 @@ const DetailAppointments = (route) => {
         res
           .json()
           .then((data) => {
-            console.log(data.data);
             setData(data.data);
             setTimeAppoint(
               parseTime(data.data.starttime.substring(0, 5)),
@@ -132,7 +130,7 @@ const DetailAppointments = (route) => {
 
   const setTimeAppoint = (start_time, end_time, interval) => {
     let times_ara = calculate_time_slot(start_time, end_time, interval);
-    console.log(times_ara);
+
     setTime(times_ara);
   };
 
@@ -198,7 +196,7 @@ const DetailAppointments = (route) => {
                           <Button
                             style={{ fontSize: 13 }}
                             color="danger"
-                            outline={e.substring(0, 5) != timeSelected}
+                            outline={e.substring(0, 5) !== timeSelected}
                             onClick={(a) => {
                               a.preventDefault();
                               setTimeSelected(e.substring(0, 5));

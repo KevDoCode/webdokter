@@ -67,7 +67,6 @@ const Patient = () => {
         res
           .json()
           .then((data) => {
-            console.log(data.data);
             setData(data.data);
           })
           .catch((e) => {});

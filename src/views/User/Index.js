@@ -43,8 +43,6 @@ import { fetchput } from "variables/Userdata";
 import DialogConfirm from "views/examples/DialogConfirm";
 
 const Index = (props) => {
-  const [activeNav, setActiveNav] = useState(1);
-  const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
   const [modalAction, setModalAction] = useState(false);
@@ -88,14 +86,11 @@ const Index = (props) => {
   const getData = () => {
     fetchget("regis/username/" + localStorage.getItem("user_user")).then(
       (res) => {
-        console.log(res.status);
         if (res.status === 401) {
           setAuth(true);
         } else {
           res.json().then((e) => {
             setData(e.data);
-            console.log(e.data);
-            console.log(data);
           });
         }
       }

@@ -51,7 +51,7 @@ const Profile = (route) => {
   }, []);
   const getData = async () => {
     let data = await fetchget("user/" + localStorage.getItem("user_user"));
-    if (data.status == 401) {
+    if (data.status === 401) {
       if (localStorage.getItem("tokenuser") !== undefined) {
         localStorage.setItem("expired", "token expired");
       }
@@ -86,18 +86,13 @@ const Profile = (route) => {
         "user/" + localStorage.getItem("user_user"),
         body
       );
-      if (data.status == 401) {
-        if (localStorage.getItem("tokenuser") !== undefined) {
-          localStorage.setItem("expired", "token expired");
-        }
+      if (data.status === 401) {
         route.history.push("/auth/user/login");
       } else {
         setstatus("success");
         setHeader("Success");
         setpesan("Data has been edited");
         setModal(true);
-        let res = await data.json();
-        console.log(res);
         localStorage.setItem("user_user", username);
         localStorage.setItem("user_name", firstname + " " + lastname);
       }
