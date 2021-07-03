@@ -44,7 +44,10 @@ import { Redirect } from "react-router-dom";
 import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
+
+import AfterModal from "components/modal/AfterModal";
 const Patient = () => {
+  const [modalError, setModalError] = useState(false);
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
@@ -77,18 +80,26 @@ const Patient = () => {
       .then((res) => {
         if (res.status === 401) {
           setAuth(true);
+        } else if (res.status === 200) {
+          res
+            .json()
+            .then((data) => {
+              fetchData();
+            })
+            .catch((e) => {});
+        } else {
+          setModalError(true);
         }
-        res
-          .json()
-          .then((data) => {
-            fetchData();
-          })
-          .catch((e) => {});
       })
       .catch((e) => {});
   };
   return (
     <>
+      <AfterModal
+        modal={modalError}
+        setModal={setModalError}
+        msg="Patient has appoint with doctor cannot delete"
+      />
       <Header />
       {auth && <Redirect to="/auth/admin/login" />}
       {/* Page content */}

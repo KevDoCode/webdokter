@@ -44,12 +44,14 @@ import { Redirect } from "react-router-dom";
 import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
+import AfterModal from "components/modal/AfterModal";
 const Tables = () => {
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalAction, setModalAction] = useState(false);
+  const [modalError, setModalError] = useState(false);
   const [auth, setAuth] = useState(false);
   useEffect((e) => {
     fetchData();
@@ -77,13 +79,16 @@ const Tables = () => {
       .then((res) => {
         if (res.status === 401) {
           setAuth(true);
+        } else if (res.status === 200) {
+          res
+            .json()
+            .then((data) => {
+              fetchData();
+            })
+            .catch((e) => {});
+        } else {
+          setModalError(true);
         }
-        res
-          .json()
-          .then((data) => {
-            fetchData();
-          })
-          .catch((e) => {});
       })
       .catch((e) => {});
   };
@@ -94,6 +99,11 @@ const Tables = () => {
       {/* Page content */}
       <Container className="mt--7" fluid>
         {/*Modal*/}
+        <AfterModal
+          modal={modalError}
+          setModal={setModalError}
+          msg="Doctor has appoint with patient cannot delete"
+        />
         <DialogDoctor
           modal={modal}
           setModal={setModal}

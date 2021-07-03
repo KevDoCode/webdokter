@@ -27,11 +27,13 @@ import Header from "components/Headers/Header.js";
 import { fetchget } from "variables/Data.js";
 import { fetchdelete } from "variables/Data";
 import { Link } from "react-router-dom";
+import AfterModal from "components/modal/AfterModal";
 const Appointment = () => {
   const [cari, setCari] = useState("");
   const [data, setData] = useState([]);
   const [dataSelected, setDataSelected] = useState([]);
   const [modalAction, setModalAction] = useState(false);
+  const [modalError, setModalError] = useState(false);
   const [auth, setAuth] = useState(false);
   useEffect((e) => {
     fetchData();
@@ -57,15 +59,18 @@ const Appointment = () => {
   const deleteItem = () => {
     fetchdelete("appointment/" + dataSelected.id)
       .then((res) => {
-        if (localStorage.getItem("token") !== undefined) {
-          localStorage.setItem("expired", "token expired");
+        if (res.status === 401) {
+          setAuth(true);
+        } else if (res.status === 200) {
+          res
+            .json()
+            .then((data) => {
+              fetchData();
+            })
+            .catch((e) => {});
+        } else {
+          setModalError(true);
         }
-        res
-          .json()
-          .then((data) => {
-            fetchData();
-          })
-          .catch((e) => {});
       })
       .catch((e) => {});
   };
@@ -74,6 +79,11 @@ const Appointment = () => {
       <Header />
       {auth && <Redirect to="/auth/admin/login" />}
       {/* Page content */}
+      <AfterModal
+        modal={modalError}
+        msg="Appoint has regist cannot delete"
+        setModal={setModalError}
+      />
       <Container className="mt--7" fluid>
         {/* Table */}
         <Row>
