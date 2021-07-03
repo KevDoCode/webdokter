@@ -13,9 +13,13 @@ Bagian Admin
 
 Url : [https://webdokter.herokuapp.com/admin/index](https://webdokter.herokuapp.com/admin/index)
 
+Dokumentasi :[https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/Admin.md)
+
 Bagian Pasien
 
 Url : [https://webdokter.herokuapp.com/user/dashboard](https://webdokter.herokuapp.com/user/dashboard)
+
+Dokumentasi :[https://github.com/KevDoCode/webdokter/blob/5183ebdc007dc4cea17e76a3fb63852ca08301d7/dokumentasi/User.md)
 
 # Bagian Admin
 
@@ -100,8 +104,9 @@ Artinya pelanggan telah dating pada saat tanggal booking
 <<<<<<< HEAD
 ![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png)
 =======
-![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png) 
->>>>>>> cc6ea3f3ad4202d45fad0a1a8f2fe8a8c49d963d
+![](https://github.com/KevDoCode/webdokter/blob/977a6ea329d7f2d54dfe8e08339e281085ea81a7/dokumentasi/user/dashboard.png)
+
+> > > > > > > cc6ea3f3ad4202d45fad0a1a8f2fe8a8c49d963d
 
 Untuk melihat jumlah pendaftar pada janji. Terdapat 4 status dalam table yaitu,
 
