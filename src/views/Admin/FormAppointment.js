@@ -65,7 +65,7 @@ const FormAppoint = (dataSelected = []) => {
 
     if (start.getTime() > end.getTime()) {
       valid = false;
-      setErrorTime("Start Must be More than End Time");
+      setErrorTime("End time must be more than start time");
     } else {
       setErrorTime("");
     }
@@ -101,7 +101,7 @@ const FormAppoint = (dataSelected = []) => {
       }
       setAuth(true);
     } else {
-      setErrorTime("Start Must be More than End Time");
+      setErrorTime("End time must be more than start time");
     }
   };
   useEffect((e) => {
