@@ -3,6 +3,10 @@
 Merupakan projek untuk menyelesaikan web task yang merupakan syarat pendaftaran dari Software Enginering Academy COMFEST. Web ini dibagi menjadi 2 bagian yaitu bagian admin dan bagian pasien.
 Template Front End By Argon
 
+Admin
+Username: admin123
+Password: admin123
+
 API
 
 URL : [https://api-dokter.herokuapp.com/](https://api-dokter.herokuapp.com/)
